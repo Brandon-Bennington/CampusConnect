@@ -1,47 +1,14 @@
-CAMPUS CONNECT — SESSION 1
+CAMPUS CONNECT
 
-Open this CampusConnect folder in Android Studio, allow Gradle sync to finish,
-select the app run configuration and an Android emulator, then click Run.
-Use JDK 17 or newer (Android Studio's bundled JDK is recommended).
-The project uses Android SDK 37, Gradle 9.6.0, and Android Gradle plugin 9.4.1.
-Android Studio may prompt you to install the SDK.
+Open this folder in Android Studio, let Gradle sync finish, select an emulator,
+and run the app. Use Android Studio's bundled JDK and Android SDK 37.
 
-What was recreated
-- Kotlin / Jetpack Compose application, package com.example.campusconnect.
-- Campus Connect title and resources-for-international-students subtitle.
-- Three cards with name, category, hours, and last-update date.
-- Default English strings and Spanish (Mexico) strings in values-es-rMX.
-- String resource IDs in CampusResource and formatted labels via stringResource.
-- MainActivity registered as the launcher activity, including the class's final fix.
+Campus resources include hours, capacity, review counts, fees, and update dates.
+English and Spanish (Spain) strings are included. Dates and numbers follow
+the current locale. Fees appear only for resources with a nonzero fee.
 
-To test the class demonstration
-1. Run with the device language set to English.
-2. In the emulator's Settings, change the system language to Spanish (Mexico).
-3. Reopen CampusConnect: names, categories, subtitle, and labels appear in Spanish.
-4. Change back to English and reopen the app.
-No in-app language selector was built in this session.
+To check localization, run the app in English, change the app or device language
+to Spanish (Spain), and reopen it.
 
-Source comparison
-Reconstructed from MDI2-115: Localization in Android Applications Session #1
-(November 14, 2026). Code and resources checked against recording frames:
-01:36:46 — data and initial screen
-02:13:38 — Spanish resource file
-02:14:13 — English resource file
-02:29:33 — finished ResourceCard
-
-The UI and translations follow the class. Build configuration is adapted to the
-installed Android toolchain rather than a verbatim transcription of every Gradle
-file. The sample date is kept as 03/08/2026. The old hardcoded "Last Update:"
-prefix is omitted from the data so the localized label is not duplicated.
-The content-description string is prepared in code as shown in class; the
-instructor did not attach it to card semantics in this session.
-The unused Campus Resources header string is retained, as in the demonstration.
-
-Android localization reference:
-https://developer.android.com/guide/topics/resources/localization
-
-Verification
-Gradle assembleDebug and lintDebug passed. All 17 resource pairs and format
-placeholders were checked. Verified on the Medium Phone API 37.1 emulator: successful launch, all three
-cards visible in English and Spanish (Mexico), and return to English.
-Language switching was tested using Android Studio Device UI Shortcuts.
+Build: ./gradlew assembleDebug
+Check: ./gradlew lintDebug

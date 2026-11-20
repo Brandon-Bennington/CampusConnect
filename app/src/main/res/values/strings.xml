@@ -17,4 +17,11 @@
     <string name="hours_label">Hours: %1$s</string>
     <string name="last_updated_label">Last updated: %1$s</string>
     <string name="content_desc_resource_card">%1$s, %2$s, hours %3$s</string>
+    <string name="updated_short_label">Updated: %1$s</string>
+    <string name="fee_label">Fee: %1$s</string>
+    <string name="capacity_label">Capacity: %1$s people</string>
+    <plurals name="review_count">
+        <item quantity="one">%d review</item>
+        <item quantity="other">%d reviews</item>
+    </plurals>
 </resources>
