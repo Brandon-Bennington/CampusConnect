@@ -4,11 +4,14 @@ Open this folder in Android Studio, let Gradle sync finish, select an emulator,
 and run the app. Use Android Studio's bundled JDK and Android SDK 37.
 
 Campus resources include hours, capacity, review counts, fees, and update dates.
-English and Spanish (Spain) strings are included. Dates and numbers follow
+English, Spanish (Spain), and Arabic (Saudi Arabia) strings are included.
+Arabic uses a right-to-left layout with mirrored start padding.
+The resource section is marked as an accessibility heading.
+Dates and numbers follow
 the current locale. Fees appear only for resources with a nonzero fee.
 
 To check localization, run the app in English, change the app or device language
-to Spanish (Spain), and reopen it.
+to Spanish (Spain) or Arabic (Saudi Arabia), and reopen it.
 
 Build: ./gradlew assembleDebug
 Check: ./gradlew lintDebug

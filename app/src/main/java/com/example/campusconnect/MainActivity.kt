@@ -18,8 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -79,14 +81,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CampusConnectScreen() {
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(dimensionResource(R.dimen.padding_screen))) {
         Text(stringResource(R.string.app_title), style = MaterialTheme.typography.headlineMedium)
         Text(stringResource(R.string.app_subtitle), style = MaterialTheme.typography.bodyMedium)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_section)))
+        Text(
+            text = stringResource(R.string.resources_section_header),
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier.semantics { heading() }
+        )
         LazyColumn {
             items(sampleResources) { resource ->
                 ResourceCard(resource)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_card_gap)))
             }
         }
     }
@@ -112,7 +119,11 @@ fun ResourceCard(resource: CampusResource) {
     val capacityFormatted = integerFormatter.format(resource.capacity)
 
     Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(12.dp)) {
+        Column(
+            modifier = Modifier
+                .padding(dimensionResource(R.dimen.padding_card_inner))
+                .padding(start = dimensionResource(R.dimen.padding_card_start))
+        ) {
             Text(name, style = MaterialTheme.typography.titleMedium)
             Text(stringResource(R.string.category_label, category), style = MaterialTheme.typography.bodySmall)
             Text(stringResource(R.string.hours_label, hours))
